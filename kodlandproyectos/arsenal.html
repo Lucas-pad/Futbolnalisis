@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Barcelona - UEFA Champions League</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #801ac4, #210dd3);
+            color: white;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        header img {
+            max-width: 100px;
+        }
+        .scoreboard {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .scoreboard img {
+            max-width: 100px;
+            margin: 0 20px;
+        }
+        .scoreboard h1 {
+            font-size: 4rem;
+            margin: 10px 0;
+        }
+        .matches {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .match-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+        }
+        .match-card h3 {
+            margin: 10px 0;
+        }
+        .match-card table {
+            width: 100%;
+            border-collapse: collapse;
+            color: white;
+        }
+        .match-card table th, .match-card table td {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px;
+        }
+        .match-card table th {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/800px-Paris_Saint-Germain_F.C..svg.png" alt="Escudo del FC Barcelona">
+        <h1>FC Barcelona - UEFA Champions League</h1>
+    </header>
+    <div class="scoreboard">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/800px-Paris_Saint-Germain_F.C..svg.png" alt="Barcelona">
+        <h1>3 - 1</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTONodgtBn_H36iuIG1VZxN1qxt_zRwKiH2mg&s" alt="Real Madrid">
+        <h2>2025</h2>
+    </div>
+    <div class="matches">
+        <div class="match-card">
+            <h3>Fase de Grupos - Jornada 1</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Barcelona</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Equipo X</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="match-card">
+            <h3>Fase de Grupos - Jornada 2</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Barcelona</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Equipo Y</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Más tarjetas de partidos aquí -->
+    </div>
+</body>
+</html>

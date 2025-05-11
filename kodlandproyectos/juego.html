@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el Jugador - UEFA Champions League</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #game-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .clue {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        #answer, #question {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adivina el Jugador - UEFA Champions League</h1>
+    <div id="game-container">
+        <label for="difficulty">Selecciona dificultad:</label>
+        <select id="difficulty">
+            <option value="novato">Novato</option>
+            <option value="mediano">Mediano</option>
+            <option value="leyenda">Leyenda</option>
+        </select>
+        <button onclick="startGame()">Comenzar</button>
+        <div id="clue-container" style="display:none;">
+            <p class="clue"></p>
+            <label for="question-type">Haz una pregunta:</label>
+            <select id="question-type">
+                <option value="año_juego">¿En qué año jugó?</option>
+                <option value="champions_ganadas">¿Cuántas Champions ganó?</option>
+                <option value="liga">¿En qué liga jugaba?</option>
+            </select>
+            <button onclick="askQuestion()">Preguntar</button>
+            <p id="response"></p>
+            <input type="text" id="answer" placeholder="Escribe el nombre del jugador">
+            <button onclick="checkAnswer()">Enviar respuesta</button>
+        </div>
+    </div>
+
+    <script>
+        const players = {
+            novato: [
+                { name: "Lionel Messi", clues: ["Argentino", "Jugó en el Barcelona", "Ganó múltiples Balón de Oro"], details: { año_juego: "2004-2021", champions_ganadas: 4, liga: "LaLiga y Ligue 1" } },
+                { name: "Cristiano Ronaldo", clues: ["Portugués", "Máximo goleador histórico de la Champions", "Ha jugado en varios clubes"], details: { año_juego: "2003-presente", champions_ganadas: 5, liga: "Premier League, LaLiga, Serie A" } }
+            ],
+            mediano: [
+                { name: "Zinedine Zidane", clues: ["Francés", "Ganó la Champions con el Real Madrid en 2002", "Fue mediocampista"], details: { año_juego: "1996-2006", champions_ganadas: 1, liga: "Serie A y LaLiga" } },
+                { name: "Paolo Maldini", clues: ["Italiano", "Legendario defensor del AC Milan", "Ganó varias Champions"], details: { año_juego: "1985-2009", champions_ganadas: 5, liga: "Serie A" } }
+            ],
+            leyenda: [
+                { name: "Marco van Basten", clues: ["Holandés", "Estrella del AC Milan en los 80 y 90", "Ganó la Champions"], details: { año_juego: "1981-1995", champions_ganadas: 1, liga: "Eredivisie y Serie A" } },
+                { name: "Ronaldo Nazário", clues: ["Brasileño", "Ganó la Champions con el Real Madrid en 2002", "Famoso por su velocidad"], details: { año_juego: "1993-2011", champions_ganadas: 0, liga: "LaLiga, Serie A, Eredivisie" } }
+            ]
+        };
+
+        let currentPlayer;
+
+        function startGame() {
+            const difficulty = document.getElementById("difficulty").value;
+            const clueContainer = document.getElementById("clue-container");
+            const clueElement = document.querySelector(".clue");
+
+            currentPlayer = players[difficulty][Math.floor(Math.random() * players[difficulty].length)];
+            clueElement.textContent = currentPlayer.clues.join(" - ");
+
+            clueContainer.style.display = "block";
+        }
+
+        function askQuestion() {
+            const questionType = document.getElementById("question-type").value;
+            const responseElement = document.getElementById("response");
+
+            let response = "No tengo información sobre eso.";
+            if (questionType === "año_juego") {
+                response = `Jugó entre ${currentPlayer.details.año_juego}.`;
+            } else if (questionType === "champions_ganadas") {
+                response = `Ganó ${currentPlayer.details.champions_ganadas} Champions League.`;
+            } else if (questionType === "liga") {
+                response = `Jugó en ${currentPlayer.details.liga}.`;
+            }
+
+            responseElement.textContent = response;
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById("answer").value.trim();
+            alert(userAnswer.toLowerCase() === currentPlayer.name.toLowerCase() ? "¡Correcto!" : "Incorrecto. La respuesta era " + currentPlayer.name);
+        }
+    </script>
+</body>
+</html>

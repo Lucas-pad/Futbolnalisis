@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbolnalisis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="redirectToPage('barcelona.html')">Barcelona</button>
+        <button onclick="redirectToPage('PSG.html')">PSG</button>
+        <button onclick="redirectToPage('arsenal.html')">Arsenal</button>
+        <button onclick="redirectToPage('inter.html')">Inter de Milán</button>
+    </div>
+
+    <script>
+        function redirectToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+    <div id="fondo" style="position: relative;">
+        <div class="overlay" style="position: relative; text-align: center;">
+            <img src="https://i.pinimg.com/originals/98/34/66/983466ddf30a88bf189b1efa13c335f7.jpg" alt="Imagen de la Champions" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5; z-index: -1;">
+
+        </div>
+    </div>
+        <img src="upscalemedia-transformed (1).jpeg" alt="Imagen de la Champions" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="overlay" style="position: absolute; top: 10%; width: 100%; text-align: center;">
+        <div id="quote-container" class="highlight" style="margin: 0; transition: opacity 1s ease-in-out; opacity: 1;">
+        
+        </div>
+
+        <script>
+            const quotes = [
+                `<h2>"Hay pocas cosas comparables con un título de esta magnitud"</h2> <br> <p style="padding-left: 700px; font-size: smaller;">- Sergio Ramos</p>`,
+                `<h2>"El fútbol es impredecible, pero la Champions es mágica"</h2> <br> <p style="padding-left: 700px; font-size: smaller;">- Lionel Messi</p>`,
+                `<h2>"La Champions League es el sueño de todo futbolista"</h2> <br> <p style="padding-left: 700px; font-size: smaller;">- Cristiano Ronaldo</p>`,
+                `<h2>"Ganar la Champions es tocar el cielo con las manos"</h2> <br> <p style="padding-left: 700px; font-size: smaller;">- Pep Guardiola</p>`
+            ];
+
+            let currentQuoteIndex = 0;
+            const quoteContainer = document.getElementById('quote-container');
+
+            setInterval(() => {
+                quoteContainer.style.opacity = 0; // Fade out
+                setTimeout(() => {
+                    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+                    quoteContainer.innerHTML = `<h1>${quotes[currentQuoteIndex]}</h1>`;
+                    quoteContainer.style.opacity = 1; // Fade in
+                }, 1000); // Wait for fade-out transition to complete
+            }, 5000); // Change quote every 5 seconds
+        </script>
+    </div>
+
+    <main class="secundario">
+        <h2>Principales candidatos</h2>
+        <div class="candidates">
+                <section>
+            <a class="barcelona" href="barcelona.html">Barcelona</a>
+            <p>El barcelona con su gran equipo es uno de los grandes candidatos sino el mayor por muchas personas a ser el campeon de la presente champions. 
+            Junto con su plantel con estrellas y promesas tales como Lamine Yamal, Raphinha, Lewandowski, schezny, entre otros jugadores, colocan a este equipo como un muerto
+            renaciente, luego de haber vuelto de jugar una europa league hace poco
+            </p>
+            <br>
+            <br>
+            <a class="psg" href="PSG.html">paris saint german</a>
+            <p>El psg, un equipo que se dice tiene el mayor poder adquisitivo en el mundo, con fichajes estrella como Kvaratskhelia, doue, dembele, marquinhos, entre otros. Es uno de los
+            claros favoritos a ganar esta presente champions league, siendo que por un camino dificil se lograron abrir paso a una final. Tristemente este equipo nunca ha ganado una
+            champions league, sin embargo en este equipo no cesan sus ganas de levantar una orejona.
+            </p>
+            <br>
+            <br>
+            <a class="arsenal" href="arsenal.html">arsenal</a>
+            <p>El arsenal, un equipo que cualquier fanatico del futbol daba por muerto en los cuartos de final tras haber sido una de las supuestas presas del real madrid y sus estrellas.
+            El arsenal sin embargo se logro hacer paso tras una aplastante humillacion al real madrid, habiendole ganado tanto en inglaterra asi commo en el intimidante bernabeu y su promesas
+            de una remontada. Con estrellas como Declan Rice, bukayo saka, Miguel Merino, etc. Planean conquistar esta champions
+            </p>
+            <br>
+            <br>
+            <a class="inter" href="inter.html">inter de milan</a>
+            <p>El inter de milan de la mano de Lautaro Martinez y su olfato goleador planean conquistar esta champions, tras haber eliminado a un bayern munich con sus estrellas lesionadas y haber sufrido
+            en su casa, el giuseppe meazza, los de milan buscan conquistar su primera champions al enfrentar al barcelona. El ambiente mortal de la hinchada nerazzura sera un factor clave en la eliminatoria
+            por semifinales.
+            </p>
+        </div>    
+    </main> 
+</body>
+</html>
